@@ -2,6 +2,11 @@ from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
 
+ECOLE_CHOICES = (
+    ("L'ecole d'aviation de Rayan", "L'ecole d'aviation de Rayan"),
+     ("L'ecole d'aviation de Maxence", "L'ecole d'aviation de Maxence"),
+      ("L'ecole d'aviation de Ezzouine", "L'ecole d'aviation de Ezzouine"),
+    )
 SERVICE_CHOICES = (
     ("Cours de Pilotage", "Cours de Pilotage"),
     )
@@ -20,7 +25,8 @@ TIME_CHOICES = (
 
 class Appointment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    service = models.CharField(max_length=50, choices=SERVICE_CHOICES, default="Doctor care")
+    ecole =  models.CharField(max_length=50, choices=SERVICE_CHOICES, default="L'ecole d'aviation de Rayan")
+    service = models.CharField(max_length=50, choices=SERVICE_CHOICES, default="Cours de Pilotage")
     day = models.DateField(default=datetime.now)
     time = models.CharField(max_length=10, choices=TIME_CHOICES, default="3 PM")
     time_ordered = models.DateTimeField(default=datetime.now, blank=True)

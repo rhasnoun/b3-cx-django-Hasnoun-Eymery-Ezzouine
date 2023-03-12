@@ -12,7 +12,16 @@
 <div class="shadow p-4 mb-5 bg-body bg-body rounded text-black  m-5 ">
     <form method="post" action="{% url 'booking' %}" class="me-2 ms-2" required>
         {% csrf_token %}
-
+        
+         <!--input service-->
+         <div>
+            <h3 class="">Select Ecole:</h3>
+            <select class="form-select fs-3" name="service">
+                <option value="L'ecole d'aviation de Rayan ">L'ecole d'aviation de Rayan</option>
+                <option value="L'ecole d'aviation de Maxence">L'ecole d'aviation de Maxence</option>
+                <option value="L'ecole d'aviation de Ezzouine ">L'ecole d'aviation de Ezzouine</option>
+            </select>
+        </div>
         <!--input service-->
         <div>
             <h3 class="">Select Service:</h3>
